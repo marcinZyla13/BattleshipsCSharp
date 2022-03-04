@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bLqjKXB0YaqIiLMkGZTwQmoEOweYsx4AUhIgjVg248z/XCQCaboTy7DY4a6SGbsakotjSk30o9C9R34JKwMp1A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\48602\\Desktop\\BattleshipsOOP\\BattleShipsOOP\\BattleShipsOOP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\48602\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}

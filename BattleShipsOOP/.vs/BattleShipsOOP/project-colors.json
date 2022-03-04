@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "27bf4930-cb4f-4079-b7be-e0d97499145b": {
+      "ProjectGuid": "27bf4930-cb4f-4079-b7be-e0d97499145b",
+      "DisplayName": "BattleShipsOOP",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
