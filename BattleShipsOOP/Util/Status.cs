@@ -6,9 +6,23 @@ using System.Threading.Tasks;
 
 namespace BattleShipsOOP
 {
-    internal class Status
+    internal static class Status
     {
+        public static void Info(int informationId)
+        {
+            switch(informationId)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 3:
+                    Console.WriteLine("Cells have been added");
+                    break;
 
+            }
+
+        }
     }
 
     enum ShipStatus
@@ -16,6 +30,12 @@ namespace BattleShipsOOP
         untouched,
         hit,
         destroyed
+    }
+
+    enum PlayerStatus
+    {
+        player_1,
+        player_2,
     }
 }
     
