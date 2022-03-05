@@ -36,7 +36,7 @@ namespace BattleShipsOOP
                 
         }
 
-        public bool ValidateFleetProcess(Ship ship)
+        private bool ValidateFleetProcess(Ship ship)
         {
             if(ship == null)
             {
