@@ -19,6 +19,24 @@ namespace BattleShipsOOP
                 case 3:
                     Console.WriteLine("Cells have been added");
                     break;
+                case 4:
+                    Console.WriteLine("No space for more units");
+                    break;
+                case 5:
+                    Console.WriteLine("Unit has been added");
+                    break;
+                case 6:
+                    Console.WriteLine("Unit has already been deplyed");
+                    break;
+                case 7:
+                    Console.WriteLine("Looks like there is no ship");
+                    break;
+                case 9:
+                    Console.WriteLine("Player is ready to play");
+                    break;
+                case 10:
+                    Console.WriteLine("Player is not ready to play");
+                    break;
 
             }
 
@@ -37,5 +55,7 @@ namespace BattleShipsOOP
         player_1,
         player_2,
     }
+
+  
 }
     

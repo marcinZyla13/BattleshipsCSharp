@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace BattleShipsOOP
 {
-    internal class Cord
+    internal class Coords
     {
+        public int _x;
+        public int _y;
+
+        public Coords(int x ,int y )
+        {
+            _x=x;
+            _y=y;
+        }
     }
 }
