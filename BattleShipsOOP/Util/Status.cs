@@ -13,8 +13,14 @@ namespace BattleShipsOOP
             switch(informationId)
             {
                 case 0:
+                    Console.WriteLine("With who You want to play ?");
+                    Console.WriteLine();
+                    Console.WriteLine("Press '1' to Play with other player");
+                    Console.WriteLine("Press '2' to Play with AI");
+                    Console.WriteLine("Press '3' to Quit the game");
                     break;
                 case 1:
+                    Console.WriteLine("No such a option, try again");
                     break;
                 case 3:
                     Console.WriteLine("Cells have been added");

@@ -6,7 +6,12 @@ namespace BattleShipsOOP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
+    internal class Play
+    {
+        Board board = Board.Instance;
+    }
+        
+
 }

@@ -11,13 +11,15 @@ namespace BattleShipsOOP
         public ShipType _shipType;
         public ShipStatus _shipStatus;
         public List<Coords> _coordinates;
+        public int _segments;
         public Ship(ShipType shipType,ShipStatus shipStatus,List<Coords>coordinates)
         {
             _shipType = shipType;
             _shipStatus = shipStatus;
             _coordinates = coordinates;
+            _segments = (int)shipStatus;
         }
-        
+      
     }
 }
 
