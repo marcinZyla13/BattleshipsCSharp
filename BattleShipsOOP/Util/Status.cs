@@ -8,5 +8,14 @@ namespace BattleShipsOOP
 {
     internal class Status
     {
+
+    }
+
+    enum ShipStatus
+    {
+        untouched,
+        hit,
+        destroyed
     }
 }
+    
