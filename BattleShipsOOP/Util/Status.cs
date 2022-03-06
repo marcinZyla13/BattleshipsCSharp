@@ -47,7 +47,22 @@ namespace BattleShipsOOP
                     Console.WriteLine("Choose the size of the battlefield : ");
                     Console.WriteLine("Min. '5' / Max. '15'");
                     break;
-         
+                case 12:
+                    Console.WriteLine("You have 3 types of ships to place :");
+                    Console.WriteLine(". => Cruiser   (3)");
+                    Console.WriteLine(". => Sumbarine (4)");
+                    Console.WriteLine(". => Destroyer (5)");
+                    Console.WriteLine("Choose location using letter and number ex. 'A5' and accept using 'Enter'");
+                    Console.WriteLine("Then choose if You want to place ship vertical or horizontal using 'v' or 'h'");
+                    Console.WriteLine("If any location will be outside of the map or placing the ship will not be passible " +
+                        "You will be asked to repeat the last process");
+                    break;
+
+
+
+
+
+
             }
 
         }
