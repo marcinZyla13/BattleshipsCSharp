@@ -43,7 +43,11 @@ namespace BattleShipsOOP
                 case 10:
                     Console.WriteLine("Player is not ready to play");
                     break;
-
+                case 11:
+                    Console.WriteLine("Choose the size of the battlefield : ");
+                    Console.WriteLine("Min. '5' / Max. '15'");
+                    break;
+         
             }
 
         }
