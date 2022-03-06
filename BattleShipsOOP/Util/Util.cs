@@ -9,7 +9,7 @@ namespace BattleShipsOOP
     internal class Util
     {
 
-        public static List<Coords> CreateCords(int size)
+        public List<Coords> CreateCords(int size)
         {
             List<Coords> cords = new List<Coords>();
             for (int x = 0; x < size; x++)
@@ -23,7 +23,7 @@ namespace BattleShipsOOP
 
         }
 
-        public static List<Cell> CreateCells(List<Coords> cords)
+        public  List<Cell> CreateCells(List<Coords> cords)
         {
             List<Cell> cells = new List<Cell>();
             foreach (var item in cords)
@@ -34,7 +34,7 @@ namespace BattleShipsOOP
 
         }
 
-        public static void Display(List<Cell> cells)
+        public  void Display(List<Cell> cells)
         {
             for (int x = 0; x<Math.Sqrt(cells.Count); x++)
             {
@@ -48,30 +48,41 @@ namespace BattleShipsOOP
             }
         }
 
-        public static void SetYourFleet(List<Cell> cells, int boardSize)
+        public void SetYourFleet(List<Cell> cells, int boardSize)
         {
             Status.Info(12);
             while (true)
             {
                 Console.WriteLine("Cruiser(3): ");
+                var coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject(boardSize);
+                var coords = coordsAndDirection.Value.Item1;
+                var direction = coordsAndDirection.Value.Item2;
+
+                /// Funkcja walidujcąca czy można położyć statek na danym miejscu mapy 
+                /// jeżeli się da , przypisanie do Fieldów danych statków 
+                /// Dużo pracy z walidacją ułożenia statku w danej lokalizacji
                 break;
 
             }
             while (true)
             {
                 Console.WriteLine("Submarine(4): ");
+                var coords = CollectCoordinatesAndGenerateCoordsObject(boardSize);
                 break;
 
             }
             while (true)
             {
                 Console.WriteLine("Destroyer(5): ");
+                var coords = CollectCoordinatesAndGenerateCoordsObject(boardSize);
                 break;
 
             }
         }
 
-        private Coords CollectCoordinatesAndGenerateCoordsObject(int boardSize)
+       
+
+        private (Coords,string)? CollectCoordinatesAndGenerateCoordsObject(int boardSize)
         {
             Console.WriteLine("Choose coordinates for ship core : (example 'A6')");
             string shipCore = Console.ReadLine();
@@ -79,7 +90,7 @@ namespace BattleShipsOOP
             string direction = Console.ReadLine();
             if (ValidateUserInput(shipCore, direction, boardSize))
             {
-                return ConvertCoords(shipCore);
+                return (ConvertCoords(shipCore), direction);
             }
             return null;
 
