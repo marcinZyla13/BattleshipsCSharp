@@ -19,7 +19,22 @@ namespace BattleShipsOOP
             _coordinates = coordinates;
             _segments = (int)shipStatus;
         }
-      
+
+        public void CutSegement()
+        {
+            _segments--;
+        }
+
+        public void UpdateStatus()
+        {
+            if (_segments == 0)
+                _shipStatus = ShipStatus.destroyed;
+            else if (_segments == (int)_shipType)
+                _shipStatus = ShipStatus.untouched;
+            else
+                _shipStatus = ShipStatus.hit;
+
+        }      
     }
 }
 

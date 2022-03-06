@@ -20,9 +20,14 @@ namespace BattleShipsOOP
             _defenceCoords = new List<Coords>();
             _attackCoords = new List<Coords>();
             _isPrepared = false;
+            _fleet = new List<Fleet>();
 
         }
 
+        public void AddFleet(List<Fleet> fleet)
+        {
+            _fleet = fleet;
+        }
         public bool IsPrepared()
         {
             return _isPrepared;

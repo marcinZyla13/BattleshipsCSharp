@@ -10,16 +10,18 @@ namespace BattleShipsOOP
     {
         private static Board instance = null;
         private static readonly object padlock = new object();
-        public static List<Cell> _cells;
+        public static List<Cell> _player_1_cells;
+        public static List<Cell> _player_2_cells;
 
         Board()
         {
             
         }
 
-        public static void AddCells(List<Cell>cells)
+        public static void AddCells(List<Cell>player_1_cells,List<Cell>player_2_cells)
         {
-            _cells = cells;
+            _player_1_cells = player_1_cells;
+            _player_2_cells = player_2_cells;
             Status.Info(3);
         }
 

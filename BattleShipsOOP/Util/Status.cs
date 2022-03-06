@@ -66,6 +66,20 @@ namespace BattleShipsOOP
         player_2,
     }
 
+    enum CellStatus
+    {
+        missed,
+        destroyed,
+        neutral,
+    }
+
+    enum Sign
+    {
+        O,
+        X,
+        M,
+    }
+
   
 }
     

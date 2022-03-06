@@ -17,10 +17,18 @@ namespace BattleShipsOOP
         {
             Menu menu = new Menu();
 
-            Board board = Board.Instance;
-            var coords = Util.CreateCords(10);
-            var cells = Util.CreateCells(coords);
-            Util.Display(cells);
+            Player player1 = new Player(PlayerStatus.player_1);
+            Fleet fleet_1 = new Fleet(PlayerStatus.player_1);
+            var coords_1 = Util.CreateCords(menu.GiveBoardSize());
+            var cells_1 = Util.CreateCells(coords_1);
+           
+
+            Player player2 = new Player(PlayerStatus.player_2);
+            Fleet fleet_2 = new Fleet(PlayerStatus.player_2);
+            var coords_2 = Util.CreateCords(menu.GiveBoardSize());
+            var cells_2 = Util.CreateCells(coords_2);
+
+            Board.AddCells(cells_1, cells_2);
 
         }
         

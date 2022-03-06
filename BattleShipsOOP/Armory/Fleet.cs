@@ -12,13 +12,25 @@ namespace BattleShipsOOP
 
         private List<Ship> _shipList;
 
-        private int _maxShipAmount = 3;
+        private int _maxShipAmount;
 
- 
+        
+       
         public Fleet(PlayerStatus playerStatus)
         {
             _playerStatus = playerStatus;
             _shipList = new List<Ship>(_maxShipAmount);
+            _maxShipAmount = 3;
+        }
+
+        public void AbandonShip()
+        {
+            _maxShipAmount--;
+        }
+
+        public bool CheckEndGameConditions()
+        {
+            return _maxShipAmount <= 0;
         }
 
         public PlayerStatus CheckFleetOwner()
@@ -26,7 +38,7 @@ namespace BattleShipsOOP
             return _playerStatus;
         }
 
-        public void AddShips(Ship ship)
+        public void AddShip(Ship ship)
         {
             if(ValidateFleetProcess(ship))
             {              

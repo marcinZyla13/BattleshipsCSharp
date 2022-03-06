@@ -30,7 +30,7 @@ namespace BattleShipsOOP
             return _boardSize;
         }
 
-        public void ChooseEnemy()
+        private void ChooseEnemy()
         {
             int amountOfMenuOptions = 3;
             Status.Info(0);
@@ -46,7 +46,7 @@ namespace BattleShipsOOP
             }            
         }
 
-        public void ChooseBoardSize()
+        private void ChooseBoardSize()
         {
             int amountOfMenuOptions = 11;
             Status.Info(11);
@@ -64,7 +64,7 @@ namespace BattleShipsOOP
         }
   
 
-        public bool ValidateInput(int options,string userInput)
+        private bool ValidateInput(int options,string userInput)
         {
             List<string> rangeofChoices = new List<string>();
             for(int x =1; x<= options; x++)
