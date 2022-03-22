@@ -12,7 +12,7 @@ namespace BattleShipsOOP
         private static readonly object padlock = new object();
         public static List<Cell> _player_1_cells;
         public static List<Cell> _player_2_cells;
-        public double _boardLength = Math.Sqrt(_player_1_cells.Count);
+        public double _boardLength = Status._boardSize;
 
         Board()
         {

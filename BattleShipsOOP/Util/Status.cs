@@ -8,6 +8,7 @@ namespace BattleShipsOOP
 {
     internal static class Status
     {
+        public static double _boardSize;
         public static void Info(int informationId)
         {
             switch(informationId)
@@ -78,8 +79,12 @@ namespace BattleShipsOOP
 
 
 
-            }
+            }          
 
+        }
+        public static void AddBoardSize(double boardSize)
+        {
+            _boardSize = boardSize;
         }
     }
 

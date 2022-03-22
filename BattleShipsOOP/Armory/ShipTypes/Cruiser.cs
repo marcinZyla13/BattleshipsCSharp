@@ -8,8 +8,8 @@ namespace BattleShipsOOP.Armory
 {
     internal class Cruiser:Ship
     {
-        public Cruiser(ShipType shipType,ShipStatus shipStatus,List<Coords> coordinates)
-            :base(shipType,shipStatus,coordinates)
+        public Cruiser(ShipType shipType,ShipStatus shipStatus/*,List<Coords> coordinates*/)
+            :base(shipType, shipStatus/*, coordinates*/)
         {
 
         }

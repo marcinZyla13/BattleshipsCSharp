@@ -58,5 +58,10 @@ namespace BattleShipsOOP
             return false;
 
         }
+
+        public bool HasAShip()
+        {
+            return _ship != null;
+        }
     }
 }
