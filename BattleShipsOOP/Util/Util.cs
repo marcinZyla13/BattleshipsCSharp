@@ -8,13 +8,14 @@ namespace BattleShipsOOP
 {
     internal class Util
     {
+        Board board = Board.Instance;
 
-        public List<Coords> CreateCords(int size)
+        public List<Coords> CreateCords()
         {
             List<Coords> cords = new List<Coords>();
-            for (int x = 0; x < size; x++)
+            for (int x = 0; x < board._boardLength; x++)
             {
-                for (int y = 0; y < size; y++)
+                for (int y = 0; y < board._boardLength; y++)
                 {
                     cords.Add(new Coords(x, y));
                 }
@@ -48,47 +49,68 @@ namespace BattleShipsOOP
             }
         }
 
-        public void SetYourFleet(List<Cell> cells, int boardSize)
+        public void SetYourFleet(List<Cell> cells)
         {
             Status.Info(12);
             while (true)
             {
-                Console.WriteLine("Cruiser(3): ");
-                var coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject(boardSize);
-                var coords = coordsAndDirection.Value.Item1;
-                var direction = coordsAndDirection.Value.Item2;
-
-                /// Funkcja walidujcąca czy można położyć statek na danym miejscu mapy 
-                /// jeżeli się da , przypisanie do Fieldów danych statków 
-                /// Dużo pracy z walidacją ułożenia statku w danej lokalizacji
+                Status.Info(13);
+                (Coords,string)? coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                CheckIfPlacementIsPassible((int)ShipType.Cruiser, coordsAndDirection,cells);
+                             
                 break;
 
             }
             while (true)
             {
-                Console.WriteLine("Submarine(4): ");
-                var coords = CollectCoordinatesAndGenerateCoordsObject(boardSize);
+                Status.Info(14);
+                (Coords,string)? coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                CheckIfPlacementIsPassible((int)ShipType.Submarine, coordsAndDirection,cells);
+
                 break;
 
             }
             while (true)
             {
-                Console.WriteLine("Destroyer(5): ");
-                var coords = CollectCoordinatesAndGenerateCoordsObject(boardSize);
+                Status.Info(15);
+                (Coords,string)? coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                CheckIfPlacementIsPassible((int)ShipType.Destroyer, coordsAndDirection,cells);
+            
                 break;
 
             }
         }
 
-       
-
-        private (Coords,string)? CollectCoordinatesAndGenerateCoordsObject(int boardSize)
+        private bool CheckIfPlacementIsPassible(int shipSize,(Coords,String)? coordsAndDirection,List<Cell>cells)
         {
-            Console.WriteLine("Choose coordinates for ship core : (example 'A6')");
+            var coords =  coordsAndDirection.Value.Item1;
+            string direction = coordsAndDirection.Value.Item2;
+
+
+            if (coords.Y() >= board._boardLength || coords.Y() >= board._boardLength) // Czy jesteśmy na planszy ??Sprawdz czy potrzebne !!!
+                return false;
+            if(direction == "v")
+            {
+                
+            }
+
+
+
+
+            
+
+            return true;
+        }
+
+
+
+        private (Coords,string)? CollectCoordinatesAndGenerateCoordsObject()
+        {
+            Status.Info(16);
             string shipCore = Console.ReadLine();
-            Console.WriteLine("Choose direction : ('v' or 'h')");
+            Status.Info(17);
             string direction = Console.ReadLine();
-            if (ValidateUserInput(shipCore, direction, boardSize))
+            if (ValidateUserInput(shipCore, direction))
             {
                 return (ConvertCoords(shipCore), direction);
             }
@@ -111,7 +133,7 @@ namespace BattleShipsOOP
         }
 
 
-        private bool ValidateUserInput(string shipCore, string direction, int boardSize)
+        private bool ValidateUserInput(string shipCore, string direction)
         {
             string alphabet = "ABCDEFGHIJKLMNO";
             string compare = default;
@@ -120,7 +142,7 @@ namespace BattleShipsOOP
                 return false;
 
 
-            for (int z = 0; z<boardSize; z++)
+            for (int z = 0; z< board._boardLength; z++)
             {
                 compare += alphabet[z];
             }
@@ -135,7 +157,7 @@ namespace BattleShipsOOP
             if (shipCore.Length == 2)
                 if (int.TryParse(Convert.ToString(shipCore[1]), out int coord))
                 {
-                    if (coord >0 || coord<=boardSize)
+                    if (coord >0 || coord<= board._boardLength)
                         return true;
                 }
                 else
@@ -145,7 +167,7 @@ namespace BattleShipsOOP
             {
                 if (int.TryParse(Convert.ToString(shipCore[1]+shipCore[2]), out int coord))
                 {
-                    if (coord >0 || coord<=boardSize)
+                    if (coord >0 || coord<= board._boardLength)
                         return true;
                 }
                 else

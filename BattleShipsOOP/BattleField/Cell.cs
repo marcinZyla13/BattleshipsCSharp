@@ -50,5 +50,13 @@ namespace BattleShipsOOP
         {
             return _coord;
         }
+        
+        public bool FindCellBasingOnXYCoords(int x ,int y)
+        {
+            if (_coord.X() == x && _coord.Y() == y)
+                return true;
+            return false;
+
+        }
     }
 }

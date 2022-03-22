@@ -57,6 +57,21 @@ namespace BattleShipsOOP
                     Console.WriteLine("If any location will be outside of the map or placing the ship will not be passible " +
                         "You will be asked to repeat the last process");
                     break;
+                case 13:
+                    Console.WriteLine("Cruiser(3): ");
+                    break;
+                case 14:
+                    Console.WriteLine("Submarine(4): ");
+                    break;
+                case 15:
+                    Console.WriteLine("Destroyer(5): ");
+                    break;
+                case 16:
+                    Console.WriteLine("Choose coordinates for ship core : (example 'A6')");
+                    break;
+                case 17:
+                    Console.WriteLine("Choose direction : ('v' or 'h')");
+                    break;
 
 
 

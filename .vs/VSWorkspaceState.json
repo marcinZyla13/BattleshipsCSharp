@@ -2,7 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\BattleShipsOOP",
-    "\\BattleShipsOOP\\Structure"
+    "\\BattleShipsOOP\\Structure",
+    "\\BattleShipsOOP\\Util"
   ],
   "SelectedNode": "\\BattleShipsOOP\\Program.cs",
   "PreviewInSolutionExplorer": false
