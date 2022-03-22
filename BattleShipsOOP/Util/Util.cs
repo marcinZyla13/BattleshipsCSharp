@@ -151,27 +151,29 @@ namespace BattleShipsOOP
                 return new ResponseObject(false);
             if (direction == "V")
             {
-                for (int i = 1; i <= shipSize; i++)
+                for (int i = 0; i < shipSize; i++)
                 {
                     foreach (var item in cells)
                     {
-                        if (item.FindCellBasingOnXYCoords(coords.X(), coords.Y()+i))
+                        if (item.FindCellBasingOnXYCoords(coords.X()-i, coords.Y()))
                         {
                             if (item.HasAShip() || CheckOnColision(item, "V", cells))
                                 return new ResponseObject(false);
                             ShipPosition.Add(item);
+                        
                         }
 
                     }
+
                 }
             }
             if (direction == "H")
             {
-                for (int i = 1; i <= shipSize; i++)
+                for (int i = 0; i < shipSize; i++)
                 {
                     foreach (var item in cells)
                     {
-                        if (item.FindCellBasingOnXYCoords(coords.X() + i, coords.Y()))
+                        if (item.FindCellBasingOnXYCoords(coords.X(), coords.Y()+i))
                         {
                             if (item.HasAShip() || CheckOnColision(item, "H", cells))
                                 return new ResponseObject(false);

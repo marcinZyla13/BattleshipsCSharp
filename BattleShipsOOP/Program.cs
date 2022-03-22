@@ -33,7 +33,7 @@ namespace BattleShipsOOP
             var cells_2 = util.CreateCells(coords_2);
 
             util.SetYourFleet(cells_1);
-            util.Display(cells_2);
+            
             //util.SetYourFleet(cells_2);
 
             
