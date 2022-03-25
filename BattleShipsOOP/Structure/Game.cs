@@ -13,29 +13,47 @@ namespace BattleShipsOOP
         public Player _player_2;
         public Board _board;
         public bool _isReady;
+        public Util _util;
 
-        public Game(Menu menu,Player player_1,Player player_2)
+        public Game(Menu menu,Player player_1,Player player_2,Util util)
         {
             _board = Board.Instance;
             _menu = menu;
             _player_1 = player_1;
             _player_2 = player_2;
             _isReady = false;
+            _util = util;
 
         }
 
-        public bool CheckIfGameIsReady()
+        public void CheckIfGameIsReady()
         {
             if (_menu == null)
-                return false;
+                return;
             if (_board == null)
-                return false;
+                return;
             if (_player_1 == null)
-                return false;
+                return;
             if (_player_2 == null)
-                return false;
-            return true;
+                return;
+            _isReady = true;
         }
+
+        public void CheckGameStatus()
+        {
+            if (_isReady == false)
+                throw new Exception("Sorry, there was an error in setting up the game... ");
+        }
+
+        public bool IsTheGameFinnished()
+        {
+            if(_player_1.CheckIfPlayerLost() ||
+                _player_2.CheckIfPlayerLost())
+                return true;
+            return false;
+
+        }
+
 
     }
 }

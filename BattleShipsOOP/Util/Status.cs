@@ -9,6 +9,8 @@ namespace BattleShipsOOP
     internal static class Status
     {
         public static double _boardSize;
+
+
         public static void Info(int informationId)
         {
             switch(informationId)
@@ -73,6 +75,9 @@ namespace BattleShipsOOP
                 case 17:
                     Console.WriteLine("Choose direction : ('v' or 'h')");
                     break;
+                case 18:
+                    Console.WriteLine("Indicate the target's location");
+                    break;
 
 
 
@@ -114,6 +119,14 @@ namespace BattleShipsOOP
         X,
         M,
     }
+
+    enum Enemy
+    {
+        player,
+        AI
+    }
+
+    
 
   
 }

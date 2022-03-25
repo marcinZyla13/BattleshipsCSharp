@@ -63,5 +63,10 @@ namespace BattleShipsOOP
         {
             return _ship != null;
         }
+
+        public Ship RevealTheShip()
+        {
+            return _ship;
+        }
     }
 }

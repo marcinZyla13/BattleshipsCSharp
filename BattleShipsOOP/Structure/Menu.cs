@@ -9,7 +9,7 @@ namespace BattleShipsOOP
 {
     internal class Menu
     {
-        private string _enemy;
+        private Enemy _enemy;
 
         private int _boardSize;
 
@@ -20,7 +20,7 @@ namespace BattleShipsOOP
             ChooseBoardSize();
         }
 
-        public string ShowTheEnemy()
+        public Enemy ShowTheEnemy()
         {
             return _enemy;
         }
@@ -39,7 +39,10 @@ namespace BattleShipsOOP
                 string enemy = Console.ReadLine();
                 if (ValidateInput(amountOfMenuOptions, enemy))
                 {
-                    _enemy = enemy;
+                    if (enemy == "1")
+                        _enemy = Enemy.player;
+                    else
+                        _enemy = Enemy.AI;
                     return;
                 }
                 Status.Info(1);

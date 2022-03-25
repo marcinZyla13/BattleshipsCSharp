@@ -8,7 +8,7 @@ namespace BattleShipsOOP
 {
     internal class Player
     {
-        private List<Fleet> _fleet;
+        private Fleet _fleet;
         private PlayerStatus _status;
         private List<Coords> _defenceCoords;
         private List<Coords> _attackCoords;
@@ -20,11 +20,11 @@ namespace BattleShipsOOP
             _defenceCoords = new List<Coords>();
             _attackCoords = new List<Coords>();
             _isPrepared = false;
-            _fleet = new List<Fleet>();
+
 
         }
 
-        public void AddFleet(List<Fleet> fleet)
+        public void AddFleet(Fleet fleet)
         {
             _fleet = fleet;
         }
@@ -60,6 +60,11 @@ namespace BattleShipsOOP
                 Status.Info(10);
             }
                        
+        }
+
+        public bool CheckIfPlayerLost()
+        {
+            return _fleet.CheckEndGameConditions();
         }
     }
 

@@ -81,7 +81,7 @@ namespace BattleShipsOOP
             
         }
 
-        public void SetYourFleet(List<Cell> cells)
+        public void SetYourFleet(List<Cell> cells,Fleet fleet)
         {
             Status.Info(12);
             while (true)
@@ -95,7 +95,9 @@ namespace BattleShipsOOP
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(cruiser);
+                        
                     }
+                    fleet.AddShip(cruiser);
                     break;
                 } 
             }
@@ -112,7 +114,9 @@ namespace BattleShipsOOP
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(submarine);
+                        
                     }
+                    fleet.AddShip(submarine);
                     break;
                 }
 
@@ -130,7 +134,9 @@ namespace BattleShipsOOP
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(destroyer);
+                        
                     }
+                    fleet.AddShip(destroyer);
                     break;
                 }                          
             }
@@ -183,6 +189,8 @@ namespace BattleShipsOOP
                     }
                 }
             }
+            if(ShipPosition.Count() < shipSize)
+                return new ResponseObject(false);
             return new ResponseObject(true, ShipPosition);
 
         }
@@ -226,7 +234,7 @@ namespace BattleShipsOOP
             string shipCore = Console.ReadLine();
             Status.Info(17);
             string direction = Console.ReadLine();
-            if (ValidateUserInput(shipCore, direction))
+            if (ValidateUserInput(shipCore, direction,"launch phase"))
             {
                 return (ConvertCoords(shipCore), direction.ToUpper());
             }
@@ -235,7 +243,7 @@ namespace BattleShipsOOP
 
         }
 
-        private Coords ConvertCoords(string shipCore)
+        public Coords ConvertCoords(string shipCore)
         {
             string alphabet = "ABCDEFGHIJKLMNO";
             int x = alphabet.IndexOf(Convert.ToString(shipCore[0]).ToUpper());
@@ -249,7 +257,7 @@ namespace BattleShipsOOP
         }
 
 
-        private bool ValidateUserInput(string shipCore, string direction)
+        public bool ValidateUserInput(string shipCore, string direction, string phase)
         {
             string alphabet = "ABCDEFGHIJKLMNO";
             string compare = default;
@@ -267,7 +275,7 @@ namespace BattleShipsOOP
                 return false;
 
             compare = "VH";
-            if (direction.Length != 1 || !compare.Contains(direction.ToUpper()))
+            if (phase == "launch phase" && direction.Length != 1 || !compare.Contains(direction.ToUpper()))
                 return false;
 
             if (shipCore.Length == 2)
