@@ -78,6 +78,15 @@ namespace BattleShipsOOP
                 case 18:
                     Console.WriteLine("Indicate the target's location");
                     break;
+                case 19:
+                    Console.Write(" Won the game !!!");
+                    break;
+                case 20:
+                    Console.WriteLine("Player 2 Won the game !!!");
+                    break;
+                case 21:
+                    Console.WriteLine("Enter Your Name :");
+                    break;
 
 
 

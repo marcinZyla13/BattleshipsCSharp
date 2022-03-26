@@ -12,7 +12,7 @@ namespace BattleShipsOOP
         private CellStatus _attackStatus;
         private CellStatus _defenceStatus;
         private Ship _ship;
-        public Sign sign;
+
 
         public Cell(Coords coord)
         {

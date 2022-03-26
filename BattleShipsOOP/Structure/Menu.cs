@@ -13,16 +13,30 @@ namespace BattleShipsOOP
 
         private int _boardSize;
 
+        private string _playerName;
+
 
         public Menu()
         {
+            EnterTheName();
             ChooseEnemy();
             ChooseBoardSize();
+        }
+
+        public void EnterTheName()
+        {
+            Status.Info(21);
+            _playerName = Console.ReadLine();
         }
 
         public Enemy ShowTheEnemy()
         {
             return _enemy;
+        }
+
+        public string GiveTheName()
+        {
+            return _playerName;
         }
 
         public int GiveBoardSize()

@@ -54,11 +54,15 @@ namespace BattleShipsOOP
             while(true)
             {
                 // fIRE 1
+                weaponSystem.OpenFire(Board._player_2_cells, Board._player_1_cells);
                 // Check the game 
+                _game.IsTheGameFinnished();
                 //Display
 
                 //Fire 2
+                weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells);
                 //Check the game 
+                _game.IsTheGameFinnished();
                 //Display
 
 

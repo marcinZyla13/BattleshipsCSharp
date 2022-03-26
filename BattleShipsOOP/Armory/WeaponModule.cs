@@ -8,14 +8,13 @@ namespace BattleShipsOOP.Armory
 {
     internal class WeaponModule
     {
-        public Coords _coords;
+        private Coords _coords;
 
-        public Cell _defender;
+        private Cell _defender;
 
-        public Cell _attacker;
+        private Cell _attacker;
 
-        public Util _util;
-
+        private Util _util;
 
 
         public WeaponModule(Util util)
@@ -23,8 +22,15 @@ namespace BattleShipsOOP.Armory
             _util = util;
         }
 
+        public void OpenFire(List<Cell> defender, List<Cell> attacker)
+        {
+            EnterAttackLocation();
+            Aim(defender, attacker);
+            Fire();
+        }
 
-        public void EnterAttackLocation()
+
+        private void EnterAttackLocation()
         {
             while (true)
             {
@@ -39,7 +45,7 @@ namespace BattleShipsOOP.Armory
 
         }
 
-        public Cell Aim(List<Cell> defender, List<Cell> attacker)
+        private Cell Aim(List<Cell> defender, List<Cell> attacker)
         {
             foreach (var item in defender)
             {
@@ -60,7 +66,7 @@ namespace BattleShipsOOP.Armory
         }
 
 
-        public void Fire()
+        private void Fire()
         {
             if (_defender.HasAShip())
             {

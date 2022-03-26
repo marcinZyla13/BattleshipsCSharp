@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BattleShipsOOP
 {
     internal class Game
@@ -45,12 +46,22 @@ namespace BattleShipsOOP
                 throw new Exception("Sorry, there was an error in setting up the game... ");
         }
 
-        public bool IsTheGameFinnished()
+        public void IsTheGameFinnished()
         {
-            if(_player_1.CheckIfPlayerLost() ||
-                _player_2.CheckIfPlayerLost())
-                return true;
-            return false;
+            if(_player_1.CheckIfPlayerLost())
+            {
+                Status.Info(20);
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+            }
+            if(_player_2.CheckIfPlayerLost())
+            {
+                Console.Write(_menu.GiveTheName());
+                Status.Info(19);
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+            }
+
+
+        
 
         }
 
