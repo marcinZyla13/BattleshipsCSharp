@@ -41,45 +41,7 @@ namespace BattleShipsOOP
 
         }
 
-        public  void Display(List<Cell> cells)
-        {
-            int counter = 0;
-            foreach (var item in cells)
-            {
-                if (counter == 9)
-                {
-                    if (item.HasAShip())
-                    {
-                        Console.Write("X");
-                        Console.Write(" ");
-                    }
-
-                    else
-                    {
-                        Console.Write("0");
-                        Console.WriteLine("");
-                    }                                                                      
-                    counter = 0;
-                    continue;
-                }
-                if(item.HasAShip())
-                {
-                    Console.Write("X");
-                    Console.Write(" ");
-                }                   
-                else
-                {
-                    Console.Write("0");
-                    Console.Write(" ");
-                }
-                counter+=1;
-                    
-              
-            }
-                    
         
-            
-        }
 
         public void SetYourFleet(List<Cell> cells,Fleet fleet)
         {
@@ -101,7 +63,6 @@ namespace BattleShipsOOP
                     break;
                 } 
             }
-            Display(cells);
             Console.WriteLine("");
             while (true)
             {
@@ -121,7 +82,6 @@ namespace BattleShipsOOP
                 }
 
             }
-            Display(cells);
             Console.WriteLine("");
             while (true)
             {
@@ -140,7 +100,6 @@ namespace BattleShipsOOP
                     break;
                 }                          
             }
-            Display(cells);
             Console.WriteLine("");
         }
 
@@ -257,7 +216,7 @@ namespace BattleShipsOOP
         }
 
 
-        public bool ValidateUserInput(string shipCore, string direction, string phase)
+        public bool ValidateUserInput(string shipCore,string direction, string phase)
         {
             string alphabet = "ABCDEFGHIJKLMNO";
             string compare = default;
@@ -275,9 +234,12 @@ namespace BattleShipsOOP
                 return false;
 
             compare = "VH";
-            if (phase == "launch phase" && direction.Length != 1 || !compare.Contains(direction.ToUpper()))
-                return false;
-
+            if(phase == "launch phase")
+            {
+                if (direction.Length != 1 || !compare.Contains(direction.ToUpper()))
+                    return false;
+            }
+            
             if (shipCore.Length == 2)
                 if (int.TryParse(Convert.ToString(shipCore[1]), out int coord))
                 {
@@ -300,6 +262,8 @@ namespace BattleShipsOOP
             }
             return false;
         }
+
+      
 
 
     }

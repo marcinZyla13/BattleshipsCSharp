@@ -16,6 +16,7 @@ namespace BattleShipsOOP
             switch(informationId)
             {
                 case 0:
+                    Console.WriteLine("");
                     Console.WriteLine("With who You want to play ?");
                     Console.WriteLine();
                     Console.WriteLine("Press '1' to Play with other player");
@@ -26,7 +27,7 @@ namespace BattleShipsOOP
                     Console.WriteLine("No such a option, try again");
                     break;
                 case 3:
-                    Console.WriteLine("Cells have been added");
+                ///////////////////////////////////////////////////////
                     break;
                 case 4:
                     Console.WriteLine("No space for more units");
@@ -47,10 +48,12 @@ namespace BattleShipsOOP
                     Console.WriteLine("Player is not ready to play");
                     break;
                 case 11:
+                    Console.Clear();
                     Console.WriteLine("Choose the size of the battlefield : ");
                     Console.WriteLine("Min. '5' / Max. '15'");
                     break;
                 case 12:
+                    Console.Clear();
                     Console.WriteLine("You have 3 types of ships to place :");
                     Console.WriteLine(". => Cruiser   (3)");
                     Console.WriteLine(". => Sumbarine (4)");
@@ -87,10 +90,10 @@ namespace BattleShipsOOP
                 case 21:
                     Console.WriteLine("Enter Your Name :");
                     break;
-
-
-
-
+                case 22:
+                    Console.Clear();
+                    Console.Write("Welcome ");
+                    break;
 
 
             }          

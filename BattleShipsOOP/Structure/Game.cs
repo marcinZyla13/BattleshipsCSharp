@@ -58,13 +58,8 @@ namespace BattleShipsOOP
                 Console.Write(_menu.GiveTheName());
                 Status.Info(19);
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
-            }
-
-
-        
+            }    
 
         }
-
-
     }
 }

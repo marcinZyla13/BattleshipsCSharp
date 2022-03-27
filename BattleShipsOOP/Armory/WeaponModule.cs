@@ -45,7 +45,7 @@ namespace BattleShipsOOP.Armory
 
         }
 
-        private Cell Aim(List<Cell> defender, List<Cell> attacker)
+        private void Aim(List<Cell> defender, List<Cell> attacker)
         {
             foreach (var item in defender)
             {
@@ -61,10 +61,8 @@ namespace BattleShipsOOP.Armory
                     _attacker = item;
                 }
             }
-            return null;
 
         }
-
 
         private void Fire()
         {

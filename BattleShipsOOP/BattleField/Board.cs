@@ -23,7 +23,6 @@ namespace BattleShipsOOP
         {
             _player_1_cells = player_1_cells;
             _player_2_cells = player_2_cells;
-            Status.Info(3);
         }
 
         public static Board Instance

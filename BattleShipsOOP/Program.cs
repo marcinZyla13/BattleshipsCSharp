@@ -10,7 +10,7 @@ namespace BattleShipsOOP
         {
             Play play = new Play();
             play.PrepareGame();
-            play.Battle();           
+            //play.Battle();           
         }
     }
 
@@ -21,6 +21,7 @@ namespace BattleShipsOOP
 
         public void PrepareGame()
         {
+            
             Menu menu = new Menu();
             Status.AddBoardSize(menu.GiveBoardSize());          
             Util util = new Util();
@@ -29,17 +30,19 @@ namespace BattleShipsOOP
             Fleet fleet_1 = new Fleet(PlayerStatus.player_1);
             var coords_1 = util.CreateCords();
             var cells_1 = util.CreateCells(coords_1);
-            util.SetYourFleet(cells_1,fleet_1);
-            player1.AddFleet(fleet_1);
+            //util.SetYourFleet(cells_1,fleet_1);
+            //player1.AddFleet(fleet_1);
 
             Player player2 = new Player(PlayerStatus.player_2);
             Fleet fleet_2 = new Fleet(PlayerStatus.player_2);
             var coords_2 = util.CreateCords();
             var cells_2 = util.CreateCells(coords_2);
-            util.SetYourFleet(cells_2,fleet_2);
-            player2.AddFleet(fleet_2);
+            //util.SetYourFleet(cells_2,fleet_2);
+            //player2.AddFleet(fleet_2);
 
             Board.AddCells(cells_1, cells_2);
+            Display.Display_attack(cells_2);
+
 
             Game game = new Game(menu,player1 ,player2,util);
             game.CheckIfGameIsReady();
@@ -48,37 +51,32 @@ namespace BattleShipsOOP
                       
         }
 
-        public void Battle()
-        {
-            WeaponModule weaponSystem  = new WeaponModule(_game._util);
-            while(true)
-            {
-                // fIRE 1
-                weaponSystem.OpenFire(Board._player_2_cells, Board._player_1_cells);
-                // Check the game 
-                _game.IsTheGameFinnished();
-                //Display
-
-                //Fire 2
-                weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells);
-                //Check the game 
-                _game.IsTheGameFinnished();
-                //Display
-
-
-            }
+        //public void Battle()
+        //{
+        //    WeaponModule weaponSystem  = new WeaponModule(_game._util);
+        //    while(true)
+        //    {
+        //        // fIRE 1
+        //        weaponSystem.OpenFire(Board._player_2_cells, Board._player_1_cells);
+        //        // Check the game 
+        //        _game.IsTheGameFinnished();
+        //        //Display
+        //        Display.Display_attack(Board._player_1_cells);
 
 
 
 
-        }
+        //        //Fire 2
+        //        weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells);
+        //        //Check the game 
+        //        _game.IsTheGameFinnished();
+        //        //Display
+        //        Display.Display_attack(Board._player_2_cells);
 
 
+        //    }
 
-            
-
-
-
+        //}
 
 
 

@@ -18,8 +18,8 @@ namespace BattleShipsOOP
 
         public Menu()
         {
-            EnterTheName();
-            ChooseEnemy();
+            //EnterTheName();
+            //ChooseEnemy();
             ChooseBoardSize();
         }
 
@@ -46,6 +46,7 @@ namespace BattleShipsOOP
 
         private void ChooseEnemy()
         {
+            Status.Info(22); Console.Write(GiveTheName());
             int amountOfMenuOptions = 3;
             Status.Info(0);
             while(true)
@@ -65,7 +66,7 @@ namespace BattleShipsOOP
 
         private void ChooseBoardSize()
         {
-            int amountOfMenuOptions = 11;
+            int amountOfMenuOptions = 15;
             Status.Info(11);
             StepBack:
             string boardSize = Console.ReadLine();
@@ -84,7 +85,7 @@ namespace BattleShipsOOP
         private bool ValidateInput(int options,string userInput)
         {
             List<string> rangeofChoices = new List<string>();
-            for(int x =1; x<= options; x++)
+            for(int x =5; x<= options; x++)
             {
                 rangeofChoices.Add(Convert.ToString(x));
             }
