@@ -3,9 +3,10 @@
     "",
     "\\BattleShipsOOP",
     "\\BattleShipsOOP\\Armory",
+    "\\BattleShipsOOP\\Armory\\ShipTypes",
     "\\BattleShipsOOP\\Structure",
     "\\BattleShipsOOP\\Util"
   ],
-  "SelectedNode": "\\BattleShipsOOP\\BattleShipsOOP.sln",
+  "SelectedNode": "\\BattleShipsOOP\\Armory\\ShipTypes\\Cruiser.cs",
   "PreviewInSolutionExplorer": false
 }

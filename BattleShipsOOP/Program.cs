@@ -1,5 +1,5 @@
 ﻿using BattleShipsOOP.Armory;
-
+using System;
 
 namespace BattleShipsOOP
 {
@@ -40,8 +40,6 @@ namespace BattleShipsOOP
             player2.AddFleet(fleet_2);
 
             Board.AddCells(cells_1, cells_2);
-            Display.Display_battleField(cells_2,"attack");
-
 
             Game game = new Game(menu,player1 ,player2,util);
             game.CheckIfGameIsReady();
@@ -52,32 +50,32 @@ namespace BattleShipsOOP
 
         public void Battle()
         {
+            Console.Clear();
             WeaponModule weaponSystem = new WeaponModule(_game._util);
             while (true)
             {
-                // fIRE 1
+
+                //Under construction
+                
                 weaponSystem.OpenFire(Board._player_2_cells, Board._player_1_cells);
-                // Check the game 
                 _game.IsTheGameFinnished();
-                //Display
+
                 Display.Display_battleField(Board._player_1_cells,"defence");
+                Display.Display_battleField(Board._player_2_cells, "attack");
 
 
 
 
-                //Fire 2
                 weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells);
-                //Check the game 
                 _game.IsTheGameFinnished();
-                //Display
+
                 Display.Display_battleField(Board._player_2_cells,"defence");
+                Display.Display_battleField(Board._player_1_cells, "attack");
 
 
             }
 
         }
-
-
 
     }
         

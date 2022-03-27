@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BattleShipsOOP
 {
@@ -14,7 +12,7 @@ namespace BattleShipsOOP
 
 
 
-        public static void Display_battleField(List<Cell> cells,string viewPerspective)
+        public static void Display_battleField(List<Cell> cells,string viewPerspective) // Another function with defence.status is needed !!!
         {
             Console.WriteLine(_alphabet);
             Console.Write(_horizontalBorderLine);
