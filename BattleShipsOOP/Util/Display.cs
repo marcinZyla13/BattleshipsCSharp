@@ -14,7 +14,7 @@ namespace BattleShipsOOP
 
 
 
-        public static void Display_attack(List<Cell> cells)
+        public static void Display_battleField(List<Cell> cells,string viewPerspective)
         {
             Console.WriteLine(_alphabet);
             Console.Write(_horizontalBorderLine);
@@ -34,69 +34,39 @@ namespace BattleShipsOOP
                     Console.Write("*");
                     Console.Write(' ');
                 }
-                else
-                {
-                    Console.Write(" "); 
-                    Console.Write(' ');
-                }
-                counter+=1;
-                if (counter >= Board.Instance._boardLength)
-                {
-                    Console.WriteLine("");
-                    if(counter2 < Board.Instance._boardLength)
-                    {
-                        if (counter2 < 10)
-                            Console.Write(" {0} |", counter2);
-                        else
-                            Console.Write("{0} |", counter2);
-                    }
-                        
-                    counter = 0;
-                    counter2+=1;
-                }
-
-            }
-
-        }
-
-
-        public static void Display_defence(List<Cell> cells)
-        {
-
-            int counter = 0;
-
-            foreach (var item in cells)
-            {
-                if (item.ShowAttackStatus() == CellStatus.destroyed)
-                {
-                    Console.Write("X");
-                    Console.Write(' ');
-                }
-                else if (item.ShowAttackStatus() == CellStatus.missed)
-                {
-                    Console.Write("*");
-                    Console.Write(' ');
-                }
-                else if(item.HasAShip())
+                else if (viewPerspective == "defence" && item.HasAShip())
                 {
                     Console.Write("#");
                     Console.Write(' ');
                 }
                 else
                 {
-                    Console.Write("D"); 
+                    Console.Write(" "); 
                     Console.Write(' ');
                 }
                 counter+=1;
+                
                 if (counter >= Board.Instance._boardLength)
                 {
+                    counter2+=1;
                     Console.WriteLine("");
+                    if(counter2 <= Board.Instance._boardLength)
+                    {
+                        if (counter2 < 10)
+                            Console.Write(" {0} |", counter2);
+                        else
+                            Console.Write("{0} |", counter2);
+                    }
+                    
                     counter = 0;
+                    
                 }
 
             }
 
         }
+
+
 
         private static string MatchAlphabet()
         {

@@ -46,6 +46,7 @@ namespace BattleShipsOOP
         public void SetYourFleet(List<Cell> cells,Fleet fleet)
         {
             Status.Info(12);
+            Display.Display_battleField(cells, "defence");
             while (true)
             {
                 Status.Info(13);
@@ -63,6 +64,7 @@ namespace BattleShipsOOP
                     break;
                 } 
             }
+            Display.Display_battleField(cells, "defence");
             Console.WriteLine("");
             while (true)
             {
@@ -82,6 +84,7 @@ namespace BattleShipsOOP
                 }
 
             }
+            Display.Display_battleField(cells, "defence");
             Console.WriteLine("");
             while (true)
             {
@@ -101,6 +104,7 @@ namespace BattleShipsOOP
                 }                          
             }
             Console.WriteLine("");
+            Display.Display_battleField(cells, "defence");
         }
 
         private ResponseObject CheckIfPlacementIsPassible(int shipSize, (Coords, string)? coordsAndDirection, List<Cell> cells)
@@ -208,10 +212,15 @@ namespace BattleShipsOOP
             int x = alphabet.IndexOf(Convert.ToString(shipCore[0]).ToUpper());
             int y = default;
             if (shipCore.Length == 2)
-                y = shipCore[1]-'0';
+               y = shipCore[1]-'0';
             else
-                y = Convert.ToInt32(shipCore[1]+shipCore[2]);
-            return new Coords(x, y-1);
+            {
+               string numbersInCoords =  shipCore.Substring(1, 2);
+               int.TryParse(numbersInCoords, out int afterParse);
+               y = afterParse;
+            }
+                
+            return new Coords(y-1, x);
 
         }
 

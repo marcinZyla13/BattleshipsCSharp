@@ -34,6 +34,7 @@ namespace BattleShipsOOP
                     break;
                 case 5:
                     Console.WriteLine("Unit has been added");
+                    Console.Clear();
                     break;
                 case 6:
                     Console.WriteLine("Unit has already been deplyed");
@@ -62,6 +63,7 @@ namespace BattleShipsOOP
                     Console.WriteLine("Then choose if You want to place ship vertical or horizontal using 'v' or 'h'");
                     Console.WriteLine("If any location will be outside of the map or placing the ship will not be passible " +
                         "You will be asked to repeat the last process");
+                    Console.WriteLine("");
                     break;
                 case 13:
                     Console.WriteLine("Cruiser(3): ");
