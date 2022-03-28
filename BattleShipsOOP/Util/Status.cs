@@ -17,14 +17,14 @@ namespace BattleShipsOOP
                     Console.WriteLine("With who You want to play ?");
                     Console.WriteLine();
                     Console.WriteLine("Press '1' to Play with other player");
-                    Console.WriteLine("Press '2' to Play with AI");
-                    Console.WriteLine("Press '3' to Quit the game");
+                    Console.WriteLine("Press '2' to Play with AI   (not available)");
                     break;
                 case 1:
                     Console.WriteLine("No such a option, try again");
                     break;
                 case 3:
-                ///////////////////////////////////////////////////////
+                    Console.WriteLine("   Welcome in BattleShips !!!");
+                    Console.WriteLine("");
                     break;
                 case 4:
                     Console.WriteLine("No space for more units");
@@ -63,12 +63,15 @@ namespace BattleShipsOOP
                     Console.WriteLine("");
                     break;
                 case 13:
+                    Console.WriteLine("");
                     Console.WriteLine("Cruiser(3): ");
                     break;
                 case 14:
+                    Console.WriteLine("");
                     Console.WriteLine("Submarine(4): ");
                     break;
                 case 15:
+                    Console.WriteLine("");
                     Console.WriteLine("Destroyer(5): ");
                     break;
                 case 16:
@@ -78,6 +81,10 @@ namespace BattleShipsOOP
                     Console.WriteLine("Choose direction : ('v' or 'h')");
                     break;
                 case 18:
+                    Console.ReadKey();                   
+                    Console.Clear();
+                    Console.WriteLine("Press Any Key to continue");
+                    Console.WriteLine("");
                     Console.WriteLine("Indicate the target's location");
                     break;
                 case 19:
@@ -92,6 +99,9 @@ namespace BattleShipsOOP
                 case 22:
                     Console.Clear();
                     Console.Write("Welcome ");
+                    break;
+                case 23:
+                    Console.WriteLine("We are sorry but AI function is under construction....");
                     break;
 
 

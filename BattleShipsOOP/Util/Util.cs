@@ -156,16 +156,16 @@ namespace BattleShipsOOP
             return new ResponseObject(true, ShipPosition);
 
         }
-        private bool CheckOnColision(Cell cell,string direction,List<Cell>cells)
+        private bool CheckOnColision(Cell cell,string direction,List<Cell>cells) 
         {
             Coords coords = cell.ShowCoords();
-            if(direction == "V")
+            if(direction == "H")
             {
                 foreach (var item in cells)
                 {
                     if(item.FindCellBasingOnXYCoords(coords.X()-1, coords.Y()) ||
                        item.FindCellBasingOnXYCoords(coords.X()+1, coords.Y()) ||
-                       item.FindCellBasingOnXYCoords(coords.X(), coords.Y()+1))
+                       item.FindCellBasingOnXYCoords(coords.X(), coords.Y()-1))
                     {
                         if (item.HasAShip())
                             return true;

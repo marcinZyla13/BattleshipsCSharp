@@ -22,6 +22,7 @@ namespace BattleShipsOOP
 
         public void EnterTheName()
         {
+            Status.Info(3);
             Status.Info(21);
             _playerName = Console.ReadLine();
         }
@@ -44,7 +45,7 @@ namespace BattleShipsOOP
         private void ChooseEnemy()
         {
             Status.Info(22); Console.Write(GiveTheName());
-            var rangeOfMenuOptions = (1,3);
+            var rangeOfMenuOptions = (1,2);
             Status.Info(0);
             while(true)
             {
@@ -54,7 +55,11 @@ namespace BattleShipsOOP
                     if (enemy == "1")
                         _enemy = Enemy.player;
                     else
-                        _enemy = Enemy.AI;
+                    {
+                        Status.Info(3);             /// under construction
+                        throw new NotImplementedException("Function under construction...");
+                        //_enemy = Enemy.AI;
+                    }
                     return;
                 }
                 Status.Info(1);
