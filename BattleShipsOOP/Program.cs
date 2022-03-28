@@ -60,8 +60,8 @@ namespace BattleShipsOOP
                 weaponSystem.OpenFire(Board._player_2_cells, Board._player_1_cells);
                 _game.IsTheGameFinnished();
 
-                Display.Display_battleField(Board._player_1_cells,"defence");
-                Display.Display_battleField(Board._player_2_cells, "attack");
+                Display.Display_Defence(Board._player_1_cells);
+                Display.Display_Attack(Board._player_1_cells);
 
 
 
@@ -69,8 +69,8 @@ namespace BattleShipsOOP
                 weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells);
                 _game.IsTheGameFinnished();
 
-                Display.Display_battleField(Board._player_2_cells,"defence");
-                Display.Display_battleField(Board._player_1_cells, "attack");
+                Display.Display_Defence(Board._player_2_cells);
+                Display.Display_Attack(Board._player_2_cells);
 
 
             }

@@ -24,6 +24,7 @@ namespace BattleShipsOOP.Armory
             EnterAttackLocation();
             Aim(defender, attacker);
             Fire();
+            Console.Clear();
         }
 
 
