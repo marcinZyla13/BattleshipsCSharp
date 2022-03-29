@@ -10,6 +10,16 @@ namespace BattleShipsOOP
         public static string _horizontalBorderLine => GenerateHorizontalBorderLine();
 
 
+        public static void DisplayBattleFields(List<Cell> cells)
+        {
+            Console.Clear();
+            Display_Defence(cells);
+            Display_Attack(cells);
+            Status.Info(24);
+            Console.ReadKey();
+            Console.Clear();
+        }
+
 
 
         public static void Display_Defence(List<Cell> cells) 
@@ -64,7 +74,7 @@ namespace BattleShipsOOP
         }
 
 
-        public static void Display_Attack(List<Cell> cells)
+        private static void Display_Attack(List<Cell> cells)
         {
             Console.WriteLine(_alphabet);
             Console.Write(_horizontalBorderLine);

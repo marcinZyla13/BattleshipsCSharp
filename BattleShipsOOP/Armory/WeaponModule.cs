@@ -24,7 +24,6 @@ namespace BattleShipsOOP.Armory
             EnterAttackLocation();
             Aim(defender, attacker);
             Fire();
-            Console.Clear();
         }
 
 
@@ -66,9 +65,9 @@ namespace BattleShipsOOP.Armory
         {
             if (_defender.HasAShip())
             {
+                _defender.RevealTheShip().CutSegement();
                 _defender.RevealTheShip().UpdateStatus();
                 _defender.ChangeDefenceStatus(CellStatus.destroyed);
-
                 _attacker.ChangeAttackStatus(CellStatus.destroyed);
             }
             else

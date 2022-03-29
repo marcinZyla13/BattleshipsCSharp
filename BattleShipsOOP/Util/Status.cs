@@ -80,10 +80,8 @@ namespace BattleShipsOOP
                 case 17:
                     Console.WriteLine("Choose direction : ('v' or 'h')");
                     break;
-                case 18:
-                    Console.ReadKey();                   
+                case 18:                 
                     Console.Clear();
-                    Console.WriteLine("Press Any Key to continue");
                     Console.WriteLine("");
                     Console.WriteLine("Indicate the target's location");
                     break;
@@ -102,6 +100,9 @@ namespace BattleShipsOOP
                     break;
                 case 23:
                     Console.WriteLine("We are sorry but AI function is under construction....");
+                    break;
+                case 24:
+                    Console.WriteLine("Press any key to change player....");
                     break;
 
 
