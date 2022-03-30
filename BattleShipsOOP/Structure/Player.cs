@@ -4,22 +4,18 @@ using System.Collections.Generic;
 
 namespace BattleShipsOOP
 {
-    internal class Player
+    public class Player
     {
         private Fleet _fleet;
-        private PlayerStatus _status;
         private List<Coords> _defenceCoords;
         private List<Coords> _attackCoords;
         private bool _isPrepared;
 
-        public Player(PlayerStatus playerStatus)
+        public Player()
         {
-            _status = playerStatus;
             _defenceCoords = new List<Coords>();
             _attackCoords = new List<Coords>();
             _isPrepared = false;
-
-
         }
 
         public void AddFleet(Fleet fleet)
@@ -40,10 +36,6 @@ namespace BattleShipsOOP
             return _attackCoords;
         }
 
-        public PlayerStatus ReturnStatus()
-        {
-            return _status; 
-        }
 
         public void CheckIfPlayerIsReady()
         {

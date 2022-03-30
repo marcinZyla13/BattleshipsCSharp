@@ -3,7 +3,7 @@
 
 namespace BattleShipsOOP
 {
-    internal class Game
+    public class Game
     {
         public Menu _menu;
         public Player _player_1;

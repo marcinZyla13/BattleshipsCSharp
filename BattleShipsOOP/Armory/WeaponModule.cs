@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BattleShipsOOP.Armory
 {
-    internal class WeaponModule
+    public class WeaponModule
     {
         private Coords _coords;
 
@@ -19,9 +19,12 @@ namespace BattleShipsOOP.Armory
             _util = util;
         }
 
-        public void OpenFire(List<Cell> defender, List<Cell> attacker)
+        public void OpenFire(List<Cell> defender, List<Cell> attacker,bool Ai)
         {
-            EnterAttackLocation();
+            if (Ai == true)
+                AiChooseAttackLocationLevelEasy();
+            else
+                EnterAttackLocation();
             Aim(defender, attacker);
             Fire();
         }
@@ -42,18 +45,29 @@ namespace BattleShipsOOP.Armory
 
         }
 
+        private void AiChooseAttackLocationLevelEasy()
+        {
+            int boardSize = (int)Status._boardSize;
+            Random random = new Random();
+            int x = random.Next(0,boardSize);
+            int y = random.Next(0, boardSize);
+            _coords = new Coords(x, y);          
+        }
+
+
+
         private void Aim(List<Cell> defender, List<Cell> attacker)
         {
             foreach (var item in defender)
             {
-                if (item.FindCellBasingOnXYCoords(_coords.X(), _coords.Y()))
+                if (item.FindCellBasingOnXYCoords(_coords.GetX(), _coords.GetY()))
                 {
                     _defender = item;
                 }
             }
             foreach (var item in attacker)
             {
-                if (item.FindCellBasingOnXYCoords(_coords.X(), _coords.Y()))
+                if (item.FindCellBasingOnXYCoords(_coords.GetX(), _coords.GetY()))
                 {
                     _attacker = item;
                 }
@@ -67,13 +81,13 @@ namespace BattleShipsOOP.Armory
             {
                 _defender.RevealTheShip().CutSegement();
                 _defender.RevealTheShip().UpdateStatus();
-                _defender.ChangeDefenceStatus(CellStatus.destroyed);
-                _attacker.ChangeAttackStatus(CellStatus.destroyed);
+                _defender.ChangeDefenceStatus(CellStatus.Destroyed);
+                _attacker.ChangeAttackStatus(CellStatus.Destroyed);
             }
             else
             {
-                _defender.ChangeDefenceStatus(CellStatus.missed);
-                _attacker.ChangeAttackStatus(CellStatus.missed);
+                _defender.ChangeDefenceStatus(CellStatus.Missed);
+                _attacker.ChangeAttackStatus(CellStatus.Missed);
             }
             
         }

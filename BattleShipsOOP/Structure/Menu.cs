@@ -4,9 +4,8 @@ using System.Collections.Generic;
 
 namespace BattleShipsOOP
 {
-    internal class Menu
+    public class Menu
     {
-        private Enemy _enemy;
 
         private int _boardSize;
 
@@ -16,7 +15,6 @@ namespace BattleShipsOOP
         public Menu()
         {
             EnterTheName();
-            ChooseEnemy();
             ChooseBoardSize();
         }
 
@@ -27,10 +25,6 @@ namespace BattleShipsOOP
             _playerName = Console.ReadLine();
         }
 
-        public Enemy ShowTheEnemy()
-        {
-            return _enemy;
-        }
 
         public string GiveTheName()
         {
@@ -42,33 +36,11 @@ namespace BattleShipsOOP
             return _boardSize;
         }
 
-        private void ChooseEnemy()
-        {
-            Status.Info(22); Console.Write(GiveTheName());
-            var rangeOfMenuOptions = (1,2);
-            Status.Info(0);
-            while(true)
-            {
-                string enemy = Console.ReadLine();
-                if (ValidateInput(rangeOfMenuOptions, enemy))
-                {
-                    if (enemy == "1")
-                        _enemy = Enemy.player;
-                    else
-                    {
-                        Status.Info(3);             /// under construction
-                        throw new NotImplementedException("Function under construction...");
-                        //_enemy = Enemy.AI;
-                    }
-                    return;
-                }
-                Status.Info(1);
-            }            
-        }
+       
 
         private void ChooseBoardSize()
         {
-            var rangeOfMenuOptions = (5,15);
+            var rangeOfMenuOptions = (7,15);
             Status.Info(11);
             StepBack:
             string boardSize = Console.ReadLine();

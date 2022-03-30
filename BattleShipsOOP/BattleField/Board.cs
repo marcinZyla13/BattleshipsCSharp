@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BattleShipsOOP
 {
-    internal sealed class Board
+    public sealed class Board
     {
         private static Board instance = null;
         private static readonly object padlock = new object();

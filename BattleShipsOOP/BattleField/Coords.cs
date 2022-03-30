@@ -1,7 +1,7 @@
 ﻿
 namespace BattleShipsOOP
 {
-    internal class Coords
+    public class Coords
     {
         private int _x;
         private int _y;
@@ -12,15 +12,18 @@ namespace BattleShipsOOP
             _y=y;
         }
 
-        public int X()
+       //// Getter i setter ?????
+       
+        public int GetX()
         {
             return _x;
         }
 
-        public int Y()
+        public int GetY()
         {
             return _y;
         }
+
 
 
     }

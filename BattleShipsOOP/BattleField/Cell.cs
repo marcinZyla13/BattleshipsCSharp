@@ -1,7 +1,7 @@
 ﻿
 namespace BattleShipsOOP
 {
-    internal class Cell
+    public class Cell
     {
         private Coords _coord;
         private CellStatus _attackStatus;
@@ -12,8 +12,8 @@ namespace BattleShipsOOP
         public Cell(Coords coord)
         {
             _coord = coord;
-            _attackStatus = CellStatus.neutral;
-            _defenceStatus = CellStatus.neutral;
+            _attackStatus = CellStatus.Neutral;
+            _defenceStatus = CellStatus.Neutral;
         }
 
         public void AddShip(Ship ship)
@@ -48,7 +48,7 @@ namespace BattleShipsOOP
         
         public bool FindCellBasingOnXYCoords(int x ,int y)
         {
-            if (_coord.X() == x && _coord.Y() == y)
+            if (_coord.GetX() == x && _coord.GetY() == y)
                 return true;
             return false;
 
@@ -64,4 +64,11 @@ namespace BattleShipsOOP
             return _ship;
         }
     }
+}
+
+public enum CellStatus
+{
+    Missed,
+    Destroyed,
+    Neutral,
 }

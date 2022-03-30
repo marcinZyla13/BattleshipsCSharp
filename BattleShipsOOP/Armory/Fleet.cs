@@ -4,19 +4,16 @@ using System.Collections.Generic;
 
 namespace BattleShipsOOP
 {
-    internal class Fleet
+    public class Fleet
     {
-        private PlayerStatus _playerStatus;
 
         private List<Ship> _shipList;
 
         private int _maxShipAmount;
 
-        
-       
-        public Fleet(PlayerStatus playerStatus)
+             
+        public Fleet()
         {
-            _playerStatus = playerStatus;
             _shipList = new List<Ship>(_maxShipAmount);
             _maxShipAmount = 3;
         }
@@ -31,10 +28,6 @@ namespace BattleShipsOOP
             return _maxShipAmount <= 0;
         }
 
-        public PlayerStatus CheckFleetOwner()
-        {
-            return _playerStatus;
-        }
 
         public void AddShip(Ship ship)
         {

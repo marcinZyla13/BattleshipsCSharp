@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace BattleShipsOOP
 {
-    internal static class Display
+    public static class Display
     {
-        public static string _alphabet => MatchAlphabet();
-        public static string _horizontalBorderLine => GenerateHorizontalBorderLine();
+        private static string _alphabet => MatchAlphabet();
+        private static string _horizontalBorderLine => GenerateHorizontalBorderLine();
 
 
         public static void DisplayBattleFields(List<Cell> cells)
@@ -32,12 +32,12 @@ namespace BattleShipsOOP
             Console.Write(" 1 |");
             foreach (var item in cells)
             {
-                if (item.ShowDefenceStatus() == CellStatus.destroyed)
+                if (item.ShowDefenceStatus() == CellStatus.Destroyed)
                 {
                     Console.Write("X");
                     Console.Write(' ');
                 }
-                else if (item.ShowDefenceStatus() == CellStatus.missed)
+                else if (item.ShowDefenceStatus() == CellStatus.Missed)
                 {
                     Console.Write("*");
                     Console.Write(' ');
@@ -84,12 +84,12 @@ namespace BattleShipsOOP
             Console.Write(" 1 |");
             foreach (var item in cells)
             {
-                if (item.ShowAttackStatus() == CellStatus.destroyed)
+                if (item.ShowAttackStatus() == CellStatus.Destroyed)
                 {
                     Console.Write("X");
                     Console.Write(' ');
                 }
-                else if (item.ShowAttackStatus() == CellStatus.missed)
+                else if (item.ShowAttackStatus() == CellStatus.Missed)
                 {
                     Console.Write("*");
                     Console.Write(' ');

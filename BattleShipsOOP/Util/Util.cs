@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace BattleShipsOOP
 {
-    internal class Util
+    public class Util
     {
-        public double _boardLength;
+        private double _boardLength;
 
         public Util()
         {
@@ -40,20 +40,62 @@ namespace BattleShipsOOP
 
         }
 
-        
+        public (Coords,string) AI_GenerateCords(ShipType shipType)
+        {
+            int shipSize = (int)shipType;
 
-        public void SetYourFleet(List<Cell> cells,Fleet fleet)
+            int x = default;
+            int y = default;
+            var boardSize = Board.Instance._boardLength;
+
+            Random random = new Random();
+
+            dynamic direction = random.Next(0, 2);
+
+            if (direction%2 ==0)
+
+                direction = "H";
+            else
+                direction = "V";
+
+            if (direction == "V")
+            {
+                x = random.Next(shipSize-1, (int)boardSize);
+                y = random.Next(0, (int)boardSize);
+            }
+            else
+            {
+                x = random.Next(0, (int)boardSize);
+                y = random.Next(0, (int)boardSize-shipSize);
+            }
+
+
+            return (new Coords(x, y),direction);
+
+        }
+
+        public void SetYourFleet(List<Cell> cells,Fleet fleet,bool ai)
         {
             Status.Info(12);
             Display.Display_Defence(cells);
+            dynamic coordsAndDirection;
             while (true)
             {
                 Status.Info(13);
-                (Coords,string)? coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                if(ai == false)
+                {
+                     coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                }
+                else
+                {
+                    coordsAndDirection = AI_GenerateCords(ShipType.Cruiser);
+                }
+                    
+
                 ResponseObject response = CheckIfPlacementIsPassible((int)ShipType.Cruiser, coordsAndDirection, cells);
                 if(response.Success())
                 {
-                    Cruiser cruiser = new Cruiser(ShipType.Cruiser, ShipStatus.untouched);
+                    Cruiser cruiser = new Cruiser(ShipType.Cruiser, ShipStatus.Untouched);
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(cruiser);
@@ -68,11 +110,18 @@ namespace BattleShipsOOP
             while (true)
             {
                 Status.Info(14);
-                (Coords,string)? coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                if (ai == false)
+                {
+                    coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                }
+                else
+                {
+                    coordsAndDirection = AI_GenerateCords(ShipType.Submarine);
+                }
                 ResponseObject response = CheckIfPlacementIsPassible((int)ShipType.Submarine, coordsAndDirection, cells);
                 if (response.Success())
                 {
-                    Submarine submarine = new Submarine(ShipType.Destroyer, ShipStatus.untouched);
+                    Submarine submarine = new Submarine(ShipType.Destroyer, ShipStatus.Untouched);
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(submarine);
@@ -88,11 +137,18 @@ namespace BattleShipsOOP
             while (true)
             {
                 Status.Info(15);
-                (Coords,string)? coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                if (ai == false)
+                {
+                    coordsAndDirection = CollectCoordinatesAndGenerateCoordsObject();
+                }
+                else
+                {
+                    coordsAndDirection = AI_GenerateCords(ShipType.Destroyer);
+                }
                 ResponseObject response = CheckIfPlacementIsPassible((int)ShipType.Destroyer, coordsAndDirection, cells);
                 if (response.Success())
                 {
-                    Destroyer destroyer = new Destroyer(ShipType.Submarine, ShipStatus.untouched);
+                    Destroyer destroyer = new Destroyer(ShipType.Submarine, ShipStatus.Untouched);
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(destroyer);
@@ -115,7 +171,7 @@ namespace BattleShipsOOP
             List<Cell> ShipPosition = new List<Cell>();
 
 
-            if (coords.Y() >= _boardLength || coords.Y() >= _boardLength)
+            if (coords.GetX() >= _boardLength || coords.GetY() >= _boardLength)
                 return new ResponseObject(false);
             if (direction == "V")
             {
@@ -123,7 +179,7 @@ namespace BattleShipsOOP
                 {
                     foreach (var item in cells)
                     {
-                        if (item.FindCellBasingOnXYCoords(coords.X()-i, coords.Y()))
+                        if (item.FindCellBasingOnXYCoords(coords.GetX()-i, coords.GetY()))
                         {
                             if (item.HasAShip() || CheckOnColision(item, "V", cells))
                                 return new ResponseObject(false);
@@ -141,7 +197,7 @@ namespace BattleShipsOOP
                 {
                     foreach (var item in cells)
                     {
-                        if (item.FindCellBasingOnXYCoords(coords.X(), coords.Y()+i))
+                        if (item.FindCellBasingOnXYCoords(coords.GetX(), coords.GetY()+i))
                         {
                             if (item.HasAShip() || CheckOnColision(item, "H", cells))
                                 return new ResponseObject(false);
@@ -163,9 +219,9 @@ namespace BattleShipsOOP
             {
                 foreach (var item in cells)
                 {
-                    if(item.FindCellBasingOnXYCoords(coords.X()-1, coords.Y()) ||
-                       item.FindCellBasingOnXYCoords(coords.X()+1, coords.Y()) ||
-                       item.FindCellBasingOnXYCoords(coords.X(), coords.Y()-1))
+                    if(item.FindCellBasingOnXYCoords(coords.GetX()-1, coords.GetY()) ||
+                       item.FindCellBasingOnXYCoords(coords.GetX()+1, coords.GetY()) ||
+                       item.FindCellBasingOnXYCoords(coords.GetX(), coords.GetY()-1))
                     {
                         if (item.HasAShip())
                             return true;
@@ -176,9 +232,9 @@ namespace BattleShipsOOP
             {
                 foreach (var item in cells)
                 {
-                    if(item.FindCellBasingOnXYCoords(coords.X(), coords.Y()+1) ||
-                       item.FindCellBasingOnXYCoords(coords.X(), coords.Y()-1) ||
-                       item.FindCellBasingOnXYCoords(coords.X()+1, coords.Y()))
+                    if(item.FindCellBasingOnXYCoords(coords.GetX(), coords.GetY()+1) ||
+                       item.FindCellBasingOnXYCoords(coords.GetX(), coords.GetY()-1) ||
+                       item.FindCellBasingOnXYCoords(coords.GetX()+1, coords.GetY()))
                     {
                         if (item.HasAShip())
                             return true;

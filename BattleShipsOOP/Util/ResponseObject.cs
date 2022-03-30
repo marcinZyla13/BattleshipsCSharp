@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BattleShipsOOP
 {
-    internal class ResponseObject
+    public class ResponseObject
     {
         private List<Cell> _shipPosition;
         private bool _success;

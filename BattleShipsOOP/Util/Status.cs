@@ -3,22 +3,16 @@
 
 namespace BattleShipsOOP
 {
-    internal static class Status
+
+    public static class Status
     {
         public static double _boardSize;
 
 
         public static void Info(int informationId)
         {
-            switch(informationId)
+            switch (informationId)
             {
-                case 0:
-                    Console.WriteLine("");
-                    Console.WriteLine("With who You want to play ?");
-                    Console.WriteLine();
-                    Console.WriteLine("Press '1' to Play with other player");
-                    Console.WriteLine("Press '2' to Play with AI   (not available)");
-                    break;
                 case 1:
                     Console.WriteLine("No such a option, try again");
                     break;
@@ -48,7 +42,7 @@ namespace BattleShipsOOP
                 case 11:
                     Console.Clear();
                     Console.WriteLine("Choose the size of the battlefield : ");
-                    Console.WriteLine("Min. '5' / Max. '15'");
+                    Console.WriteLine("Min. '7' / Max. '15'");
                     break;
                 case 12:
                     Console.Clear();
@@ -80,7 +74,7 @@ namespace BattleShipsOOP
                 case 17:
                     Console.WriteLine("Choose direction : ('v' or 'h')");
                     break;
-                case 18:                 
+                case 18:
                     Console.Clear();
                     Console.WriteLine("");
                     Console.WriteLine("Indicate the target's location");
@@ -106,7 +100,7 @@ namespace BattleShipsOOP
                     break;
 
 
-            }          
+            }
 
         }
         public static void AddBoardSize(double boardSize)
@@ -115,41 +109,4 @@ namespace BattleShipsOOP
         }
     }
 
-    enum ShipStatus
-    {
-        untouched,
-        hit,
-        destroyed
-    }
-
-    enum PlayerStatus
-    {
-        player_1,
-        player_2,
-    }
-
-    enum CellStatus
-    {
-        missed,
-        destroyed,
-        neutral,
-    }
-
-    enum Sign
-    {
-        O,
-        X,
-        M,
-    }
-
-    enum Enemy
-    {
-        player,
-        AI
-    }
-
-    
-
-  
 }
-    
