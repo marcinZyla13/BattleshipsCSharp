@@ -54,13 +54,13 @@ namespace BattleShipsOOP
             WeaponModule weaponSystem = new WeaponModule(_game._util);
             while (true)
             {
-               
                 weaponSystem.OpenFire(Board._player_2_cells, Board._player_1_cells,false);
+                _game.ProvidePlayer("Player").CheckFleet();
                 _game.IsTheGameFinnished();
-                Display.DisplayBattleFields(Board._player_1_cells);
 
                 weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells, true);
                 _game.IsTheGameFinnished();
+                _game.ProvidePlayer("Ai").CheckFleet();
                 Display.DisplayBattleFields(Board._player_1_cells);
 
 
@@ -68,6 +68,8 @@ namespace BattleShipsOOP
             }
 
         }
+
+       
 
         
 

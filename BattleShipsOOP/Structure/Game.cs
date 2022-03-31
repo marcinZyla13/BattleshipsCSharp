@@ -23,6 +23,15 @@ namespace BattleShipsOOP
 
         }
 
+        public Player ProvidePlayer(string playerType)
+        {
+            if(playerType == "Ai")
+                return _player_2;
+            if (playerType == "player")
+                return _player_1;
+            throw new Exception("Something went wrong , try again");
+        }
+
         public void CheckIfGameIsReady()
         {
             if (_menu == null)

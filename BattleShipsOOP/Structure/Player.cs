@@ -18,6 +18,16 @@ namespace BattleShipsOOP
             _isPrepared = false;
         }
 
+        public void CheckFleet()
+        {
+            foreach (var item in _fleet.ProvideFleet())
+            {
+                if (item._shipStatus == ShipStatus.Destroyed)
+                    _fleet.AbandonShip();
+            }
+
+        }
+
         public void AddFleet(Fleet fleet)
         {
             _fleet = fleet;

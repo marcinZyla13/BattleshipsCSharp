@@ -19,9 +19,9 @@ namespace BattleShipsOOP.Armory
             _util = util;
         }
 
-        public void OpenFire(List<Cell> defender, List<Cell> attacker,bool Ai)
+        public void OpenFire(List<Cell> defender, List<Cell> attacker,bool ai)
         {
-            if (Ai == true)
+            if (ai == true)
                 AiChooseAttackLocationLevelEasy();
             else
                 EnterAttackLocation();

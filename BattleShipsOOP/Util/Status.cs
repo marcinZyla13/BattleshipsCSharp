@@ -42,7 +42,7 @@ namespace BattleShipsOOP
                 case 11:
                     Console.Clear();
                     Console.WriteLine("Choose the size of the battlefield : ");
-                    Console.WriteLine("Min. '7' / Max. '15'");
+                    Console.WriteLine("( Min. '7' / Max. '15' )");
                     break;
                 case 12:
                     Console.Clear();
@@ -96,7 +96,8 @@ namespace BattleShipsOOP
                     Console.WriteLine("We are sorry but AI function is under construction....");
                     break;
                 case 24:
-                    Console.WriteLine("Press any key to change player....");
+                    Console.WriteLine("");
+                    Console.WriteLine("Press any key to switch to attack mode");
                     break;
 
 

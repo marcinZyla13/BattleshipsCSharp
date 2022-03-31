@@ -12,7 +12,6 @@ namespace BattleShipsOOP
             _y=y;
         }
 
-       //// Getter i setter ?????
        
         public int GetX()
         {

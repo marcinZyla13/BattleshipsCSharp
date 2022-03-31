@@ -77,7 +77,8 @@ namespace BattleShipsOOP
         public void SetYourFleet(List<Cell> cells,Fleet fleet,bool ai)
         {
             Status.Info(12);
-            Display.Display_Defence(cells);
+            if(ai == false)
+                Display.Display_Defence(cells);
             dynamic coordsAndDirection;
             while (true)
             {
@@ -105,7 +106,8 @@ namespace BattleShipsOOP
                     break;
                 } 
             }
-            Display.Display_Defence(cells);
+            if (ai == false)
+                Display.Display_Defence(cells);
             Console.WriteLine("");
             while (true)
             {
@@ -132,7 +134,8 @@ namespace BattleShipsOOP
                 }
 
             }
-            Display.Display_Defence(cells);
+            if (ai == false)
+                Display.Display_Defence(cells);
             Console.WriteLine("");
             while (true)
             {
@@ -159,7 +162,8 @@ namespace BattleShipsOOP
                 }                          
             }
             Console.WriteLine("");
-            Display.Display_Defence(cells);
+            if (ai == false)
+                Display.Display_Defence(cells);
         }
 
         private ResponseObject CheckIfPlacementIsPassible(int shipSize, (Coords, string)? coordsAndDirection, List<Cell> cells)

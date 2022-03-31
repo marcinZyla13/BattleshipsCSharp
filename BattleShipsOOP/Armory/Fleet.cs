@@ -11,12 +11,20 @@ namespace BattleShipsOOP
 
         private int _maxShipAmount;
 
-             
+
         public Fleet()
         {
-            _shipList = new List<Ship>(_maxShipAmount);
             _maxShipAmount = 3;
+            _shipList = new List<Ship>(_maxShipAmount);
+
         }
+
+        public List<Ship> ProvideFleet()
+        {
+            return _shipList;
+        }
+
+
 
         public void AbandonShip()
         {
@@ -31,22 +39,22 @@ namespace BattleShipsOOP
 
         public void AddShip(Ship ship)
         {
-            if(ValidateFleetProcess(ship))
-            {              
+            if (ValidateFleetProcess(ship))
+            {
                 _shipList.Add(ship);
                 Status.Info(5);
             }
-                
+
         }
 
         private bool ValidateFleetProcess(Ship ship)
         {
-            if(ship == null)
+            if (ship == null)
             {
                 Status.Info(7);
                 return false;
             }
-            if(_shipList.Count > 3)
+            if (_shipList.Count > 3)
             {
                 Status.Info(4);
                 return false;
