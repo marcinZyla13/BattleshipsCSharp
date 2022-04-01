@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace BattleShipsOOP
 {
     public abstract class Ship
@@ -11,12 +13,12 @@ namespace BattleShipsOOP
         {
             _shipType = shipType;
             _shipStatus = shipStatus;
-            _segments = (int)shipStatus;
+            _segments = (int)shipType;
         }
 
         public void CutSegement()
         {
-            _segments--;
+            _segments-=1;
         }
 
         public void UpdateStatus()

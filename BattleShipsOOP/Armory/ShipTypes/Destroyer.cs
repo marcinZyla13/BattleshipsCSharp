@@ -7,7 +7,6 @@ namespace BattleShipsOOP.Armory
         public Destroyer(ShipType shipType, ShipStatus shipStatus)
             : base(shipType, shipStatus)
         {
-
         }
     }
 }

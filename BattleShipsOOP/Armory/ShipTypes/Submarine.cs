@@ -7,7 +7,6 @@ namespace BattleShipsOOP.Armory
         public Submarine(ShipType shipType, ShipStatus shipStatus)
             : base(shipType, shipStatus)
         {
-
         }
     }
 }

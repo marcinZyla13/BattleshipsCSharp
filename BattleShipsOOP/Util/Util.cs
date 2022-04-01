@@ -123,7 +123,7 @@ namespace BattleShipsOOP
                 ResponseObject response = CheckIfPlacementIsPassible((int)ShipType.Submarine, coordsAndDirection, cells);
                 if (response.Success())
                 {
-                    Submarine submarine = new Submarine(ShipType.Destroyer, ShipStatus.Untouched);
+                    Submarine submarine = new Submarine(ShipType.Submarine, ShipStatus.Untouched);
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(submarine);
@@ -151,7 +151,7 @@ namespace BattleShipsOOP
                 ResponseObject response = CheckIfPlacementIsPassible((int)ShipType.Destroyer, coordsAndDirection, cells);
                 if (response.Success())
                 {
-                    Destroyer destroyer = new Destroyer(ShipType.Submarine, ShipStatus.Untouched);
+                    Destroyer destroyer = new Destroyer(ShipType.Destroyer, ShipStatus.Untouched);
                     foreach (var item in response.ShipPosition())
                     {
                         item.AddShip(destroyer);

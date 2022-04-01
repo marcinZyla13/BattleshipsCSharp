@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 
@@ -9,13 +10,11 @@ namespace BattleShipsOOP
 
         private List<Ship> _shipList;
 
-        private int _maxShipAmount;
 
 
         public Fleet()
         {
-            _maxShipAmount = 3;
-            _shipList = new List<Ship>(_maxShipAmount);
+            _shipList = new List<Ship>();
 
         }
 
@@ -24,16 +23,9 @@ namespace BattleShipsOOP
             return _shipList;
         }
 
-
-
-        public void AbandonShip()
-        {
-            _maxShipAmount--;
-        }
-
         public bool CheckEndGameConditions()
         {
-            return _maxShipAmount <= 0;
+            return _shipList.Count<=0;
         }
 
 

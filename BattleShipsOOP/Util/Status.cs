@@ -41,6 +41,7 @@ namespace BattleShipsOOP
                     break;
                 case 11:
                     Console.Clear();
+                    Display.DisplayIntro();
                     Console.WriteLine("Choose the size of the battlefield : ");
                     Console.WriteLine("( Min. '7' / Max. '15' )");
                     break;
@@ -108,6 +109,8 @@ namespace BattleShipsOOP
         {
             _boardSize = boardSize;
         }
+
+        
     }
 
 }

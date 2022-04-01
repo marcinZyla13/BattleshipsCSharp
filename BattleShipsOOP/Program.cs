@@ -20,7 +20,7 @@ namespace BattleShipsOOP
 
         public void PrepareGame()
         {
-            
+
             Menu menu = new Menu();
             Status.AddBoardSize(menu.GiveBoardSize());          
             Util util = new Util();
@@ -48,6 +48,7 @@ namespace BattleShipsOOP
                       
         }
 
+
         public void Battle()
         {
             Console.Clear();
@@ -57,12 +58,13 @@ namespace BattleShipsOOP
                 weaponSystem.OpenFire(Board._player_2_cells, Board._player_1_cells,false);
                 _game.ProvidePlayer("Player").CheckFleet();
                 _game.IsTheGameFinnished();
+                Display.DisplayBattleFields(Board._player_1_cells);
+
 
                 weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells, true);
                 _game.IsTheGameFinnished();
                 _game.ProvidePlayer("Ai").CheckFleet();
-                Display.DisplayBattleFields(Board._player_1_cells);
-
+                Display.DisplayBattleFields(Board._player_2_cells);
 
 
             }

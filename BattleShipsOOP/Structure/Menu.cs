@@ -14,12 +14,14 @@ namespace BattleShipsOOP
 
         public Menu()
         {
+            
             EnterTheName();
             ChooseBoardSize();
         }
 
         public void EnterTheName()
         {
+            Display.DisplayIntro();
             Status.Info(3);
             Status.Info(21);
             _playerName = Console.ReadLine();
@@ -40,6 +42,7 @@ namespace BattleShipsOOP
 
         private void ChooseBoardSize()
         {
+            Display.DisplayIntro();
             var rangeOfMenuOptions = (7,15);
             Status.Info(11);
             StepBack:

@@ -27,7 +27,7 @@ namespace BattleShipsOOP
         {
             if(playerType == "Ai")
                 return _player_2;
-            if (playerType == "player")
+            if (playerType == "Player")
                 return _player_1;
             throw new Exception("Something went wrong , try again");
         }

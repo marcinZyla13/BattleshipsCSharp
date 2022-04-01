@@ -6,7 +6,7 @@ namespace BattleShipsOOP
 {
     public class Player
     {
-        private Fleet _fleet;
+        public Fleet _fleet;                   /// CHANGE TO PUBLIC
         private List<Coords> _defenceCoords;
         private List<Coords> _attackCoords;
         private bool _isPrepared;
@@ -18,12 +18,16 @@ namespace BattleShipsOOP
             _isPrepared = false;
         }
 
-        public void CheckFleet()
+        public void CheckFleet()              
         {
             foreach (var item in _fleet.ProvideFleet())
             {
                 if (item._shipStatus == ShipStatus.Destroyed)
-                    _fleet.AbandonShip();
+                {
+                    _fleet.ProvideFleet().Remove(item);
+                    return;
+                }
+                    
             }
 
         }

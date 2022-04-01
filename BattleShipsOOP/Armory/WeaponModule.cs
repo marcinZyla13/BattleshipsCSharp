@@ -81,7 +81,16 @@ namespace BattleShipsOOP.Armory
             {
                 _defender.RevealTheShip().CutSegement();
                 _defender.RevealTheShip().UpdateStatus();
+
+                Console.WriteLine(_defender.RevealTheShip());
+                Console.WriteLine(_defender.RevealTheShip()._segments);
+                Console.WriteLine(_defender.RevealTheShip()._shipStatus);
+                Console.ReadKey();
+
+
+
                 _defender.ChangeDefenceStatus(CellStatus.Destroyed);
+
                 _attacker.ChangeAttackStatus(CellStatus.Destroyed);
             }
             else
