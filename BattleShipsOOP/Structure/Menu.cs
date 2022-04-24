@@ -21,7 +21,7 @@ namespace BattleShipsOOP
 
         public void EnterTheName()
         {
-            Display.DisplayIntro();
+            Console.Write("                        "); Display.DisplayIntro();
             Status.Info(3);
             Status.Info(21);
             _playerName = Console.ReadLine();

@@ -64,7 +64,7 @@ namespace BattleShipsOOP
                 weaponSystem.OpenFire(Board._player_1_cells, Board._player_2_cells, true);
                 _game.IsTheGameFinnished();
                 _game.ProvidePlayer("Ai").CheckFleet();
-                Display.DisplayBattleFields(Board._player_2_cells);
+                Display.DisplayBattleFields(Board._player_1_cells);
 
 
             }

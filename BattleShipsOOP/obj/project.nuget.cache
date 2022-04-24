@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bLqjKXB0YaqIiLMkGZTwQmoEOweYsx4AUhIgjVg248z/XCQCaboTy7DY4a6SGbsakotjSk30o9C9R34JKwMp1A==",
+  "dgSpecHash": "VULpXuZbHNVuoBXvmQrmC+YBwxEBown40HgYE1V/zdL6//SLL4mX5e49l6a1a4nx0bC9zHXp5L/b16W9RHzdtw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\48602\\Desktop\\BattleshipsOOP\\BattleShipsOOP\\BattleShipsOOP.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\48602\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\48602\\Desktop\\BattleshipsCSharp\\BattleShipsOOP\\BattleShipsOOP.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -14,6 +14,7 @@ namespace BattleShipsOOP
         {
             Console.Clear();
             Display_Defence(cells);
+            Console.WriteLine("");
             Display_Attack(cells);
             Status.Info(24);
             Console.ReadKey();
